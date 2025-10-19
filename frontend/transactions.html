@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transaktionen</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <button onclick="location.href='index.html'">🏠 Home</button>
+    <button onclick="location.href='transactions.html?type=income'">➕ Plus</button>
+    <button onclick="location.href='transactions.html?type=expense'">➖ Minus</button>
+  </nav>
+
+  <main class="container">
+    <h1>Transaktionen</h1>
+
+    <form id="txForm" class="form-grid">
+      <select id="txType">
+        <option value="income">Einnahme</option>
+        <option value="expense">Ausgabe</option>
+      </select>
+      <input id="txAmount" type="number" step="0.01" placeholder="Betrag *" required />
+      <input id="txDate" type="date" required />
+      <input id="txCategory" placeholder="Kategorie" />
+      <input id="txDescription" placeholder="Beschreibung" />
+      <label class="checkbox">
+        <input id="txIsContract" type="checkbox" /> Zugehörig zu Vertrag
+      </label>
+      <input id="txContractId" type="number" placeholder="Contract-ID (optional)" />
+      <button type="submit" class="btn">Speichern</button>
+    </form>
+
+    <table class="table" id="txTable">
+      <thead>
+        <tr><th>Typ</th><th>Betrag</th><th>Datum</th><th>Kategorie</th><th>Beschreibung</th><th>Vertrag</th><th>Aktion</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/transactions.js"></script>
+</body>
+</html>

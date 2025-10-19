@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verträge</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <button onclick="location.href='index.html'">🏠 Home</button>
+    <button onclick="location.href='transactions.html?type=income'">➕ Plus</button>
+    <button onclick="location.href='transactions.html?type=expense'">➖ Minus</button>
+  </nav>
+
+  <main class="container">
+    <h1>Verträge verwalten</h1>
+
+    <form id="contractForm" class="form-grid">
+      <input id="provider" placeholder="Anbieter *" required />
+      <input id="description" placeholder="Beschreibung" />
+      <input id="category" placeholder="Kategorie (z.B. Streaming)" />
+      <input id="amount" type="number" step="0.01" placeholder="Betrag *" required />
+      <select id="payment_rhythm_id"></select>
+      <select id="payment_format_id"></select>
+      <input id="email" type="email" placeholder="E-Mail (optional)" />
+      <input id="contract_number" placeholder="Vertragsnummer" />
+      <input id="customer_number" placeholder="Kundennummer" />
+      <label>Start <input id="start_date" type="date" /></label>
+      <label>Ende <input id="end_date" type="date" /></label>
+      <label>Abrechnung <input id="billing_date" type="date" /></label>
+      <label class="checkbox">
+        <input id="is_active" type="checkbox" checked /> Aktiv
+      </label>
+      <button type="submit" class="btn">Speichern</button>
+    </form>
+
+    <table class="table" id="contractsTable">
+      <thead>
+        <tr>
+          <th>Anbieter</th><th>Kategorie</th><th>Betrag</th><th>Rhythmus</th><th>Monat</th><th>Jahr</th><th>Aktiv</th><th>Aktion</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/contracts.js"></script>
+</body>
+</html>

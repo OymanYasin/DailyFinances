@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Finanzübersicht</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <button onclick="location.href='index.html'">🏠 Home</button>
+    <button onclick="location.href='transactions.html?type=income'">➕ Plus</button>
+    <button onclick="location.href='transactions.html?type=expense'">➖ Minus</button>
+  </nav>
+
+  <main class="container">
+    <h1>Übersicht</h1>
+    <section class="cards">
+      <div class="card">
+        <div class="card-title">Einnahmen (gesamt)</div>
+        <div id="totalIncome" class="card-value">–</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Ausgaben (gesamt)</div>
+        <div id="totalExpense" class="card-value">–</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Verträge (jährlich)</div>
+        <div id="contractsYearly" class="card-value">–</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Bilanz</div>
+        <div id="net" class="card-value">–</div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-block">
+        <h2>Ausgaben nach Kategorie</h2>
+        <canvas id="expenseByCategory"></canvas>
+      </div>
+    </section>
+
+    <section class="cta">
+      <a class="btn" href="contracts.html">Verträge verwalten</a>
+      <a class="btn" href="transactions.html">Transaktionen verwalten</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

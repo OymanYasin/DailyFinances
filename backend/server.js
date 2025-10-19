@@ -16,7 +16,7 @@ const transactionsRoute = require('./routes/transactions');
 app.use('/api/contracts', contractsRoute);
 app.use('/api/payment-formats', paymentFormatsRoute);
 app.use('/api/payment-rhythms', paymentRhythmsRoute);
-app.use('/api/transactions', transactionsRoute);
+app.use('/api/finance-transaction', transactionsRoute);
 
 // Übersicht/Stats für Dashboard
 const db = require('./database');

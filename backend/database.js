@@ -39,17 +39,17 @@ db.serialize(() => {
   )`);
 
   // Transaktionen (Einnahmen/Ausgaben) für Plus/Minus
-  db.run(`CREATE TABLE IF NOT EXISTS transaction (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    type TEXT NOT NULL CHECK(type IN ('income','expense')),
-    amount REAL NOT NULL,
-    date TEXT NOT NULL,
-    category TEXT,
-    description TEXT,
-    is_contract INTEGER NOT NULL DEFAULT 0,
-    contract_id INTEGER,
-    FOREIGN KEY(contract_id) REFERENCES contract(id)
-  )`);
+  db.run(`CREATE TABLE IF NOT EXISTS finance_transaction (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type TEXT NOT NULL CHECK(type IN ('income','expense')),
+  amount REAL NOT NULL,
+  date TEXT NOT NULL,
+  category TEXT,
+  description TEXT,
+  is_contract INTEGER NOT NULL DEFAULT 0,
+  contract_id INTEGER,
+  FOREIGN KEY(contract_id) REFERENCES contract(id)
+)`);
 
   // View: Vertragskosten als Monats- und Jahreswert
   db.run(`CREATE VIEW IF NOT EXISTS v_contract_costs AS
